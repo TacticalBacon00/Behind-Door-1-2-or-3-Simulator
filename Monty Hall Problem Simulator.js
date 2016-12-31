@@ -37,7 +37,7 @@ var carLocation;
 //Where the car is NOT; to be picked later
 var wrongChoices;
 //What you pick as your guess
-var originalUserChoice;
+var originalUserChoice = "Door #2"; //THIS IS LOCKED IN AS THE NUMBER 2 CHOICE EVERY TIME
 //Will be one of the two wrong doors
 var randomWrongDoor, otherWrongDoor;
 //Uses a true/false to indicate if you changed your mind
@@ -60,14 +60,17 @@ var choice = function() {
   else if (randomNumber < .999999) {carLocation = door3; wrongChoices = [door1, door2];}
   else { alert("Random number generator failed.");} //Just in case the random number is between .9999991 and 1
 
+  /*COMMENTED OUT BECAUSE THERE IS NO CHOICE IN THIS VERSION
   //**Asks you to pick a door and records your answer in a variable called originalUserChoice**
-  originalUserChoice = prompt("Please choose a door:\nDoor #1\nDoor #2\nDoor #3", "Door #X");
+  //originalUserChoice = prompt("Please choose a door:\nDoor #1\nDoor #2\nDoor #3", "Door #X");
   //Checks to make sure that the user entered a valid choice
   if (originalUserChoice != "Door #1" && originalUserChoice != "Door #2" && originalUserChoice != "Door #3"){
     alert("You have made an invalid choice");
     return;
   }
   alert("Your choice has been recorded.");
+  */
+
 
   //**Tosses a coin, to determine the random wrong door**
   if(Math.floor(Math.random()*2) >= 1) { //Generates a 0 or 1 (heads/tails) to assign values to both wrong doors
@@ -79,32 +82,38 @@ var choice = function() {
   };
 
   //**Opening the door and revealing the empty room**
-  alert("I will now open one of the doors...\n" + randomWrongDoor + " has been opened and does not contain a car!");
+  console.log("I will now open one of the doors...\n" + randomWrongDoor + " has been opened and does not contain a car!");
 
+  /*COMMENTED OUT BECAUSE USER IS NOT CHANGING THEIR MIND
   //Asks if the user wants to change their mind
   changedChoice = confirm(randomWrongDoor + " does not have a car. You chose " + originalUserChoice + ". Will you change your decision?");
+  */
+  changedChoice = false;
+
 
   //**THE FINAL REVEAL!**
   if (changedChoice == false){ //USER DID NOT CHANGE CHOICE
     if (carLocation == originalUserChoice){ //USER GUESSED CORRECTLY
       correctGuesses++; //Adds a correct guess to the counter
-      alert("You have chosen...correctly!");
+      console.log("You have chosen...correctly!");
     } else{ //USER GUESSED INCORRECTLY
       incorrectGuesses++; //Adds an incorrect guess to the counter
-      alert("You have chosen...poorly.");
+      console.log("You have chosen...poorly.");
     }
   } else { //USER DID CHANGE CHOICE
     if (carLocation != originalUserChoice){ //USER GUESSED CORRECTLY
       correctGuesses++; //Adds a correct guess to the counter
-      alert("You have chosen...correctly!");
+      console.log("You have chosen...correctly!");
     } else { //USER GUESSED INCORRECTLY
       incorrectGuesses++; //Adds an incorrect guess to the counter
-      alert("You have chosen...poorly.");
+      console.log("You have chosen...poorly.");
     }
   }
   //Gives total running stats
-  alert("Your current statistics:\nCorrect guesses: " + correctGuesses + "\nIncorrect guesses: " + incorrectGuesses + "\nTotal guesses: " + (incorrectGuesses+correctGuesses) + "\nCorrect guess percentage: " + Math.floor(((correctGuesses/(correctGuesses+incorrectGuesses))*100)) + "%");
+  console.log("Your current statistics:\nCorrect guesses: " + correctGuesses + "\nIncorrect guesses: " + incorrectGuesses + "\nTotal guesses: " + (incorrectGuesses+correctGuesses) + "\nCorrect guess percentage: " + Math.floor(((correctGuesses/(correctGuesses+incorrectGuesses))*100)) + "%");
 }
 
-//Actually runs the program
+//Actually runs the program 1,000,000 times
+for (i=0; i<1000000; i++){
 choice();
+};
