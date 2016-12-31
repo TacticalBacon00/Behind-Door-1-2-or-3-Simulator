@@ -88,7 +88,7 @@ var choice = function() {
   //Asks if the user wants to change their mind
   changedChoice = confirm(randomWrongDoor + " does not have a car. You chose " + originalUserChoice + ". Will you change your decision?");
   */
-  changedChoice = false;
+  changedChoice = true;
 
 
   //**THE FINAL REVEAL!**
@@ -113,7 +113,7 @@ var choice = function() {
   console.log("Your current statistics:\nCorrect guesses: " + correctGuesses + "\nIncorrect guesses: " + incorrectGuesses + "\nTotal guesses: " + (incorrectGuesses+correctGuesses) + "\nCorrect guess percentage: " + Math.floor(((correctGuesses/(correctGuesses+incorrectGuesses))*100)) + "%");
 }
 
-//Actually runs the program 1,000,000 times
-for (i=0; i<1000000; i++){
+//Actually runs the program 100,000 times
+for (i=0; i<100000; i++){
 choice();
 };
