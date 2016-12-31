@@ -88,7 +88,7 @@ var choice = function() {
   //Asks if the user wants to change their mind
   changedChoice = confirm(randomWrongDoor + " does not have a car. You chose " + originalUserChoice + ". Will you change your decision?");
   */
-  changedChoice = true;
+  changedChoice = false;
 
 
   //**THE FINAL REVEAL!**
