@@ -113,7 +113,7 @@ var choice = function() {
   console.log("Your current statistics:\nCorrect guesses: " + correctGuesses + "\nIncorrect guesses: " + incorrectGuesses + "\nTotal guesses: " + (incorrectGuesses+correctGuesses) + "\nCorrect guess percentage: " + ((correctGuesses/(correctGuesses+incorrectGuesses))*100) + "%");
 }
 
-//Actually runs the program 100,000 times
+//Actually runs the program 1,000 times
 for (i=0; i<1000; i++){
 choice();
 };
