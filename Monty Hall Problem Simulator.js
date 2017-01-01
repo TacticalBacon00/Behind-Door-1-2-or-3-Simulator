@@ -110,10 +110,10 @@ var choice = function() {
     }
   }
   //Gives total running stats
-  console.log("Your current statistics:\nCorrect guesses: " + correctGuesses + "\nIncorrect guesses: " + incorrectGuesses + "\nTotal guesses: " + (incorrectGuesses+correctGuesses) + "\nCorrect guess percentage: " + Math.floor(((correctGuesses/(correctGuesses+incorrectGuesses))*100)) + "%");
+  console.log("Your current statistics:\nCorrect guesses: " + correctGuesses + "\nIncorrect guesses: " + incorrectGuesses + "\nTotal guesses: " + (incorrectGuesses+correctGuesses) + "\nCorrect guess percentage: " + ((correctGuesses/(correctGuesses+incorrectGuesses))*100) + "%");
 }
 
 //Actually runs the program 100,000 times
-for (i=0; i<100000; i++){
+for (i=0; i<1000; i++){
 choice();
 };
